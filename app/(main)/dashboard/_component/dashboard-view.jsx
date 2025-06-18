@@ -16,7 +16,8 @@ import {
   TrendingUp,
   TrendingDown,
   Brain,
-} from "lucide-react";
+}
+ from "lucide-react"; // Make sure LineChart, TrendingUp, TrendingDown, Brain are imported from 'lucide-react'
 import { format, formatDistanceToNow } from "date-fns";
 import {
   Card,
@@ -29,7 +30,8 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 
 const DashboardView = ({ insights }) => {
-  // Transform salary data for the chart
+  // Transform salary data for the chart - values are already divided by 1000
+  // so they are represented in 'K' units (e.g., 50 for 50,000)
   const salaryData = insights.salaryRanges.map((range) => ({
     name: range.role,
     min: range.min / 1000,
@@ -44,9 +46,9 @@ const DashboardView = ({ insights }) => {
       case "medium":
         return "bg-yellow-500";
       case "low":
-        return "bg-red-500";
-      default:
-        return "bg-gray-500";
+      return "bg-red-500";
+    default:
+      return "bg-gray-500";
     }
   };
 
@@ -148,7 +150,7 @@ const DashboardView = ({ insights }) => {
         <CardHeader>
           <CardTitle>Salary Ranges by Role</CardTitle>
           <CardDescription>
-            Displaying minimum, median, and maximum salaries (in thousands)
+            Displaying minimum, median, and maximum salaries (in thousands **INR**)
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -166,7 +168,7 @@ const DashboardView = ({ insights }) => {
                           <p className="font-medium">{label}</p>
                           {payload.map((item) => (
                             <p key={item.name} className="text-sm">
-                              {item.name}: ${item.value}K
+                              {item.name}: ₹{item.value}K {/* Changed $ to ₹ */}
                             </p>
                           ))}
                         </div>
@@ -175,9 +177,9 @@ const DashboardView = ({ insights }) => {
                     return null;
                   }}
                 />
-                <Bar dataKey="min" fill="#94a3b8" name="Min Salary (K)" />
-                <Bar dataKey="median" fill="#64748b" name="Median Salary (K)" />
-                <Bar dataKey="max" fill="#475569" name="Max Salary (K)" />
+                <Bar dataKey="min" fill="#94a3b8" name="Min Salary (K INR)" /> {/* Changed name */}
+                <Bar dataKey="median" fill="#64748b" name="Median Salary (K INR)" /> {/* Changed name */}
+                <Bar dataKey="max" fill="#475569" name="Max Salary (K INR)" /> {/* Changed name */}
               </BarChart>
             </ResponsiveContainer>
           </div>

@@ -358,7 +358,7 @@ export default function ResumeBuilder({ initialContent }) {
                 </p>
               )}
             </div>
-
+                
             {/* Projects */}
             <div className="space-y-4">
               <h3 className="text-lg font-medium">Projects</h3>
