@@ -7,7 +7,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { dark } from "@clerk/themes";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -40,5 +39,7 @@ export default function RootLayout({ children }) {
         </body>
       </html>
     </ClerkProvider>
+    
   );
+ 
 }

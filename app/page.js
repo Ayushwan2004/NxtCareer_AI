@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Analytics } from "@vercel/analytics/next"
 import {
   ArrowRight,
   Trophy,
@@ -207,6 +208,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      <Analytics />
     </>
   );
 }
