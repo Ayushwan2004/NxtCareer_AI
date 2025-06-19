@@ -52,7 +52,7 @@ export async function generateQuiz() {
 
     return quiz.questions;
   } catch (error) {
-    console.error("Error generating quiz:", error);
+    // console.error("Error generating quiz:", error);
     throw new Error("Failed to generate quiz questions");
   }
 }
@@ -105,7 +105,7 @@ export async function saveQuizResult(questions, answers, score) {
       improvementTip = tipResult.response.text().trim();
       console.log(improvementTip);
     } catch (error) {
-      console.error("Error generating improvement tip:", error);
+      // console.error("Error generating improvement tip:", error);
       // Continue without improvement tip if generation fails
     }
   }
@@ -123,7 +123,7 @@ export async function saveQuizResult(questions, answers, score) {
 
     return assessment;
   } catch (error) {
-    console.error("Error saving quiz result:", error);
+    // console.error("Error saving quiz result:", error);
     throw new Error("Failed to save quiz result");
   }
 }
@@ -150,7 +150,7 @@ export async function getAssessments() {
 
     return assessments;
   } catch (error) {
-    console.error("Error fetching assessments:", error);
+    // console.error("Error fetching assessments:", error);
     throw new Error("Failed to fetch assessments");
   }
 }

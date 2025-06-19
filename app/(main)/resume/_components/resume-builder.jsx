@@ -131,7 +131,7 @@ export default function ResumeBuilder({ initialContent }) {
 
       await html2pdf().set(opt).from(element).save();
     } catch (error) {
-      console.error("PDF generation error:", error);
+      // console.error("PDF generation error:", error);
     } finally {
       setIsGenerating(false);
     }
@@ -147,7 +147,7 @@ export default function ResumeBuilder({ initialContent }) {
       console.log(previewContent, formattedContent);
       await saveResumeFn(previewContent);
     } catch (error) {
-      console.error("Save error:", error);
+      // console.error("Save error:", error);
     }
   };
 

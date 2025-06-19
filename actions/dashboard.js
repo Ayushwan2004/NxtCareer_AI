@@ -37,7 +37,7 @@ export const generateAIInsights = async (industry) => {
 
     return JSON.parse(cleanedText);
   } catch (error) {
-    console.error("Error generating AI insights:", error);
+    // console.error("Error generating AI insights:", error);
     // Optionally, return a default/empty structure or re-throw the error
     throw new Error("Failed to generate AI insights.");
   }
@@ -58,7 +58,7 @@ export async function getIndustryInsights() {
 
   // If no insights exist, generate them
   if (!user.industryInsight) {
-    console.log("No existing insights, generating new ones...");
+    // console.log("No existing insights, generating new ones...");
     const insights = await generateAIInsights(user.industry);
 
     const industryInsight = await db.industryInsight.create({
@@ -76,7 +76,7 @@ export async function getIndustryInsights() {
   // Check if existing insights are older than 7 days and regenerate if needed
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
   if (user.industryInsight.lastUpdated < sevenDaysAgo) {
-    console.log("Insights are outdated, regenerating...");
+    // console.log("Insights are outdated, regenerating...");
     const insights = await generateAIInsights(user.industry);
 
     const updatedInsight = await db.industryInsight.update({
@@ -90,6 +90,6 @@ export async function getIndustryInsights() {
     return updatedInsight;
   }
 
-  console.log("Returning existing insights.");
+  // console.log("Returning existing insights.");
   return user.industryInsight;
 }

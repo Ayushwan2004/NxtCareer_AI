@@ -60,7 +60,7 @@ export async function generateCoverLetter(data) {
 
     return coverLetter;
   } catch (error) {
-    console.error("Error generating cover letter:", error.message);
+    // console.error("Error generating cover letter:", error.message);
     throw new Error("Failed to generate cover letter");
   }
 }

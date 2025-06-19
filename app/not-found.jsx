@@ -34,7 +34,7 @@ export default function NotFound() {
     if (showSpaceship && videoRef.current) {
       videoRef.current.play().catch(error => {
         // Autoplay might be blocked by browsers, show a console error but continue
-        console.error("Failed to play video automatically:", error);
+        // console.error("Failed to play video automatically:", error);
         // Optionally, you could display a play button here if autoplay fails
       });
     }
